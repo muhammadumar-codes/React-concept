@@ -1,0 +1,30 @@
+.super-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+    gap: 10px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(152, 117, 0);
+    color: white;
+    height: 30vh;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    
+}
+.container >div >button{
+    
+    margin-left: 10px;
+    background-color: orange;
+    padding: 10px;
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}

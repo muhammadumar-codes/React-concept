@@ -1,21 +1,38 @@
-import  Home from "./pages/Home"
-import  About from './pages/About'
+// pages
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
+import NotFound from "./pages/NotFound/NotFound";
 
+// Layout
+import Layout from "./Layout/Layout";
+
+// watchContextProvider
+import  WatchDataProvider from "./components/DataContext/Datacontext"
+
+
+
+//routes  and  route
 import { Routes, Route } from "react-router-dom";
-import CountContextProivder from "./countContext"
 
 export default function App() {
   return (
     <>
-      <CountContextProivder>
+<WatchDataProvider>
 
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/About" element={<About />}></Route>
-          <Route path="*" element={<div>Not Found any Page</div>}></Route>
 
-          </Routes>
-      </CountContextProivder>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+
+
+</WatchDataProvider>
+
     </>
   );
 }
