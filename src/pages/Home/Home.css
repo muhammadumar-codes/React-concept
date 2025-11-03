@@ -18,11 +18,11 @@
 /* Counter container */
 .container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   width: 90%;
   max-width: 500px;
-  height: 220px;
+  height: 350px;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   border-radius: 25px;
