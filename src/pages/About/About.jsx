@@ -1,9 +1,9 @@
-// Home.jsx
+
 
 import { CounterContext } from "../../context/CounterContext/CounterContext";
 import { useContext } from "react";
 
-export default function Home() {
+export default function About() {
   const { state, dispatch } = useContext(CounterContext);
 
   return (

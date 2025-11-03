@@ -1,15 +1,16 @@
-// Here we are Creating the custom hook of react
+// useCounter.js
 import { useState } from 'react'
-const initial = 0
 
-function useCounter() {
-  const [count, setCount] = useState(0)
+function useCounter(initial = 0) {
+  const [count, setCount] = useState(initial)
 
-  const increment = setCount((prev) => prev + 1)
-  const decrement = setCount((prev) => prev - 1)
-  const reset = setCount(0)
+  // define functions (not call them immediately)
+  const increment = () => setCount((prev) => prev + 1)
+  const decrement = () => setCount((prev) => prev - 1)
+  const reset = () => setCount(initial)
 
-  return { increment, decrement, reset }
+  // return everything you want to use
+  return { increment, decrement, reset, count }
 }
 
 export default useCounter
