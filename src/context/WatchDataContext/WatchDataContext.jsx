@@ -1,31 +1,15 @@
 import { createContext } from "react";
 
-import { useReducer } from "react";
 
-
-
+// WatchContext
 export const watchContext = createContext();
 
+// contextProvider 
+
 export default function WatchDataProvider({ children }) {
-  // Reducer function
- 
-  function Reducers(state, action) {
-    switch (action.type) {
-      case "INCREMENT":
-        return { count: +state.count + 1 };
-      case "DECREMENT":
-        return { count: state.count > 0 ? state.count - 1 : state.count };
-      case "RESET":
-        return { count: 0 };
-    }
-  }
 
-  const [state, dispatch] = useReducer(Reducers, { count: 0 });
+  // Watch Data in a  context :
 
-
-
-
-  // Watches array (static data for now)
   const watches = [
     {
       id: 1,
@@ -43,11 +27,13 @@ export default function WatchDataProvider({ children }) {
       image:
         "//currenwatches.com.pk/cdn/shop/products/Untitled-1copy.jpg?v=1750833325",
     },
-    // ... baki watches
+
   ];
 
+  //  Provider for globally state to get it
+  
   return (
-    <watchContext.Provider value={{watches, state ,dispatch}}>
+    <watchContext.Provider value={{watches}}>
       {children}
     </watchContext.Provider>
   );

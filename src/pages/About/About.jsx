@@ -1,22 +1,21 @@
-// reducers
+// Home.jsx
 
-import {watchContext} from "../../components/DataContext/Datacontext"
+import { CounterContext } from "../../context/CounterContext/CounterContext";
 import { useContext } from "react";
 
-export default function About() {
-const {state ,dispatch}=useContext(watchContext);
+export default function Home() {
+  const { state, dispatch } = useContext(CounterContext);
 
-
- return (
-    <>
+  return (
     <div className="super-container">
-       <div className="container">
-         <h1>Count : {state.count}</h1>
-    <div>  <button onClick={() => dispatch({ type: "INCREMENT" })}>INCREMENT</button>
-      <button onClick={() => dispatch({ type: "DECREMENT" })}>DECREMENT</button>
-      <button onClick={() => dispatch({ type: "RESET" })}>RESET</button></div>
-       </div>
+      <div className="container">
+        <div className="counter-display">{state.count}</div>
+        <div className="button-group">
+          <button onClick={() => dispatch({ type: "INCREMENT" })}>+</button>
+          <button onClick={() => dispatch({ type: "DECREMENT" })}>−</button>
+          <button onClick={() => dispatch({ type: "RESET" })}>Reset</button>
+        </div>
+      </div>
     </div>
-    </>
   );
 }

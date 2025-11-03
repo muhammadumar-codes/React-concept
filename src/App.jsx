@@ -7,8 +7,8 @@ import NotFound from "./pages/NotFound/NotFound";
 // Layout
 import Layout from "./Layout/Layout";
 
-// watchContextProvider
-import  WatchDataProvider from "./components/DataContext/Datacontext"
+// counter context
+import CounterContextProvider from "./context/CounterContext/CounterContext";
 
 
 
@@ -18,7 +18,7 @@ import { Routes, Route } from "react-router-dom";
 export default function App() {
   return (
     <>
-<WatchDataProvider>
+<CounterContextProvider>
 
 
       <Routes>
@@ -31,7 +31,7 @@ export default function App() {
       </Routes>
 
 
-</WatchDataProvider>
+</CounterContextProvider>
 
     </>
   );

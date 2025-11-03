@@ -1,30 +1,101 @@
-.super-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 80vh;
-    gap: 10px;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    align-items: center;
-    background-color: rgb(152, 117, 0);
-    color: white;
-    height: 30vh;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-    
+/* Page layout */
+.super-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle at top left, #ffb347, #ffcc33, #ff8800);
+  font-family: 'Poppins', sans-serif;
 }
-.container >div >button{
-    
-    margin-left: 10px;
-    background-color: orange;
-    padding: 10px;
+
+/* Counter container */
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%;
+  max-width: 500px;
+  height: 220px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 25px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Display area */
+.counter-display {
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.button-group button {
+  background: linear-gradient(135deg, #ff9d00, #ff5e00);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 0;
+  width: 120px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 87, 34, 0.4);
+  transition: all 0.25s ease;
+}
+
+.button-group button:hover {
+  background: linear-gradient(135deg, #ffb400, #ff3d00);
+  transform: scale(1.07);
+  box-shadow: 0 6px 15px rgba(255, 87, 34, 0.6);
+}
+
+.button-group button:active {
+  transform: scale(0.95);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    padding: 25px;
+  }
+
+  .counter-display {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+  }
+
+  .button-group {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .button-group button {
     width: 100px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
+    padding: 10px;
+  }
 }
