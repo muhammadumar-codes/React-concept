@@ -6,6 +6,7 @@ import { type } from "../../context/CounterContext/CounterContext";
 
 export default function Home() {
   const { state, dispatch } = useContext(CounterContext);
+  console.log("The parent Renders")
 
   return (
     <div className="super-container">

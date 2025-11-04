@@ -2,11 +2,19 @@
   color: black;
 }
 .user {
-  height: 100px;
+  height: 130px;
   width: 400px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  padding: 10px;
+  border-radius: 7px;
 }
-
+.user:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transform: scaleY(1.1);
+  transition: 0.3s ease-in-out all;
+  cursor: pointer;
+}
 .data-container {
   display: flex;
   flex-wrap: wrap;
