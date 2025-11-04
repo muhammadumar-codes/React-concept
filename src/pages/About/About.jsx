@@ -1,7 +1,9 @@
 
 
 import { CounterContext } from "../../context/CounterContext/CounterContext";
-import { use, useContext } from "react";
+import {  useContext } from "react";
+
+import Button from "../../components/Button/Button";
 
 // custom hook
 import useFetch from "../../hooks/useFetch/useFetch";
@@ -18,10 +20,10 @@ export default function About() {
     <div className="super-container">
       <div className="container">
         <div className="counter-display">{state.count}</div>
-        <div className="button-group">
-          <button onClick={() => dispatch({ type: "INCREMENT" })}>+</button>
-          <button onClick={() => dispatch({ type: "DECREMENT" })}>−</button>
-          <button onClick={() => dispatch({ type: "RESET" })}>Reset</button>
+        <div className="Button-group">
+          <Button  className="btn"onClick={() => dispatch({ type: "INCREMENT" })}>+</Button>
+          <Button  className="btn"onClick={() => dispatch({ type: "DECREMENT" })}>−</Button>
+          <Button className="btn" onClick={() => dispatch({ type: "RESET" })}>Reset</Button>
         </div>
       </div>
     </div>
