@@ -22,6 +22,9 @@ export default function Header() {
             <NavLink to={"/Contact"}>
               <li>Contact</li>
             </NavLink>
+              <NavLink to={"/Services"}>
+              <li>Services</li>
+            </NavLink>
            
           </nav>
         </div>

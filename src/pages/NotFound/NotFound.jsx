@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom"
+//components
+import Button from "../../components/Button/Button"
 
 export default function NotFound (){
 const  navigate=useNavigate()
 
+
+// navigate.
 const handleNavigate=()=>{
     navigate("/")
 }
@@ -10,7 +14,8 @@ const handleNavigate=()=>{
     return (
         <>
         <h1>NotFound Page</h1>
-        <button onClick={handleNavigate}>Back To Home</button>
+        <Button className="btn" onClick={handleNavigate} >Back Home</Button>
+     
         </>
     )
 }
