@@ -15,6 +15,15 @@
   transition: 0.3s ease-in-out all;
   cursor: pointer;
 }
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  gap: 15px;
+}
+
 .data-container {
   display: flex;
   flex-wrap: wrap;
