@@ -17,7 +17,7 @@ export default function Home() {
           <button onClick={() => dispatch({ type: type.increment ,names:"Muhammad  Umar" })}>+</button>
           <button onClick={() => dispatch({ type: type.decrement })}>−</button>
           <button onClick={() => dispatch({ type:type.reset })}>Reset</button>
-          <button onClick={() => dispatch({ type:type.custom ,payload:34 })}>Custom</button>
+          <button onClick={() => dispatch({ type:type.custom ,payload:15 })}>Custom</button>
         </div>
       </div>
     </div>

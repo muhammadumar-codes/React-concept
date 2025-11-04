@@ -2,9 +2,12 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 function useFetch(url) {
+  // states
   const [users, setUsers] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+
+  //Fetch on on Mount update
   useEffect(() => {
     async function fetchData() {
       if (!url) {
@@ -22,11 +25,11 @@ function useFetch(url) {
         setLoading(false)
       }
     }
+    // calling fetching Data fun
     fetchData()
   }, [url])
 
   //  getting the states in compoenents
-
   return { users, loading, error }
 }
 

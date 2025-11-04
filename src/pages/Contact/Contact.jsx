@@ -1,5 +1,5 @@
 import "./contact.css"
-import useFetch from "../../hooks/useFetch"
+import useFetch from "../../hooks/useFetch/useFetch"
 
 export default function Contact() {
 
