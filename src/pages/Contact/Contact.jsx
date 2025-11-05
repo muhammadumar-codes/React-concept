@@ -1,59 +1,85 @@
 import './contact.css'
-
-// Hooks
 import useFetch from '../../hooks/useFetch/useFetch'
-
-// Button.
+import ProfessionalLoader from '../../components/Loader/Loader'
+import ApiError from '../../components/Error/Error'
 import Button from '../../components/Button/Button'
 
 export default function Contact() {
-  // Refresh Button fun
-
   const reload = () => {
     window.location.reload()
   }
 
-  // logic from useFetch Custom hook
-  const { users, loading, error } = useFetch(
+  const { users, loading, error, refetch } = useFetch(
     'https://jsonplaceholder.typicode.com/users'
   )
 
-  // users
-  if (users) console.log(users)
-
-  // loading
-  if (loading) return <h1>Loading ...</h1>
-
-  // Error
-  if (error)
+  // Show loader while loading
+  if (loading) {
     return (
-      <>
-        <div className="error">
-          <h1>Something Went Wrong ...</h1>
-          <Button className="btn" onClick={reload}>
-            Refresh
-          </Button>
-        </div>
-      </>
+      <ProfessionalLoader 
+        message="Loading User Data"
+        subMessage="Fetching your information from the server"
+      />
     )
+  }
 
-  // return on ui
+  // Show error component if there's an error
+  if (error) {
+    return (
+      <ApiError 
+        error={error}
+        onRetry={refetch}
+        statusCode={500}
+      />
+    )
+  }
+
+  // Safe rendering of users data
+  const renderUsers = () => {
+    // Check if users is an array and has items
+    if (!users || !Array.isArray(users)) {
+      return (
+        <div className="no-users">
+          <h2>Data format error</h2>
+          <p>Expected array but got: {typeof users}</p>
+        </div>
+      )
+    }
+
+    if (users.length === 0) {
+      return (
+        <div className="no-users">
+          <h2>No users found</h2>
+        </div>
+      )
+    }
+
+    return users.map((item) => (
+      <div key={item.id} className="user-card">
+        <h2 className="user-name">{item.name}</h2>
+        <p className="user-email">Email: {item.email}</p>
+        <p className="user-phone">Phone: {item.phone}</p>
+        <p className="user-website">Website: {item.website}</p>
+        <div className="user-address">
+          <p>Address: {item?.address?.street}, {item?.address?.city}</p>
+        </div>
+        <p className="user-company">Company: {item?.company?.name}</p>
+      </div>
+    ))
+  }
 
   return (
-    <>
-      <div className="data-container">
-        {users ? (
-          users.map((item) => (
-            <>
-              <div className="user">
-                <h1>Name {item.name} </h1> <h4>Email :{item.email}</h4>
-              </div>
-            </>
-          ))
-        ) : (
-          <h1>Error in Users Data</h1>
-        )}
+    <div className="contact-container">
+      <div className="contact-header">
+        <h1>Contact Users</h1>
+        <Button onClick={reload} className="refresh-btn">
+          Refresh Page
+        </Button>
       </div>
-    </>
+      
+      <div className="data-container">
+        {renderUsers()}
+      </div>
+    </div>
   )
 }

@@ -1,0 +1,226 @@
+/* ErrorDisplay.css */
+.error-container {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #f8f9fa;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.error-icon {
+  margin-bottom: 24px;
+}
+
+.error-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 16px;
+}
+
+.error-message {
+  font-size: 16px;
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.error-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #3498db;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: #95a5a6;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #7f8c8d;
+  transform: translateY(-1px);
+}
+
+.error-details {
+  margin-top: 32px;
+  text-align: left;
+}
+
+.error-details summary {
+  cursor: pointer;
+  color: #3498db;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.error-stack {
+  background: #2c3e50;
+  color: #ecf0f1;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  overflow-x: auto;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* ApiError.css */
+.api-error-container {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.api-error-content {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.error-status {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.status-404 {
+  color: #e74c3c;
+}
+.status-500 {
+  color: #e67e22;
+}
+.status-403 {
+  color: #f39c12;
+}
+.status-401 {
+  color: #d35400;
+}
+.status-generic {
+  color: #95a5a6;
+}
+
+.api-error-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 16px;
+}
+
+.api-error-message {
+  font-size: 16px;
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.api-error-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.retry-btn,
+.home-btn,
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retry-btn {
+  background: #3498db;
+  color: white;
+}
+
+.retry-btn:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+}
+
+.home-btn {
+  background: #2ecc71;
+  color: white;
+}
+
+.home-btn:hover {
+  background: #27ae60;
+  transform: translateY(-1px);
+}
+
+.contact-btn {
+  background: transparent;
+  color: #3498db;
+  border: 2px solid #3498db;
+}
+
+.contact-btn:hover {
+  background: #3498db;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.debug-info {
+  margin-top: 24px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.debug-info h4 {
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.debug-info p {
+  color: #e74c3c;
+  font-family: monospace;
+  font-size: 12px;
+}
