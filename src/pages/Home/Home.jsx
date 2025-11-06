@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="super-container">
     
-      {state.name && <h5>User: {state.name}</h5>}
+
 
       <div className="counter-container">
         <div className="counter-display">{state.count}</div>
