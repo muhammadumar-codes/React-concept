@@ -4,6 +4,8 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import NotFound from "./pages/NotFound/NotFound";
 import Services from "./pages/Services/Services";
+import Redux from "./pages/Redux/Redux";
+
 
 // Layout
 import Layout from "./Layout/Layout";
@@ -28,8 +30,9 @@ export default function App() {
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/Services" element={<Services />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/Redux" element={<Redux />} />
         </Route>
+          <Route path="*" element={<NotFound />} />
       </Routes>
 
 

@@ -25,6 +25,9 @@ export default function Header() {
               <NavLink to={"/Services"}>
               <li>Services</li>
             </NavLink>
+              <NavLink to={"/Redux"}>
+              <li>Redux</li>
+            </NavLink>
            
           </nav>
         </div>

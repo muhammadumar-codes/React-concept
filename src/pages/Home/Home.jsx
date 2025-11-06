@@ -6,8 +6,6 @@ import { useContext } from "react";
 import { type } from "../../context/CounterContext/CounterContext";
 import Button from "../../components/Button/Button";
 
-// env file api key
-const apiKey=import.meta.env.VITE_API_KEY
 
 
 // Home page
