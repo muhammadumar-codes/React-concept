@@ -1,11 +1,19 @@
 // src/pages/Home/Home.jsx
 import "./Home.css";
+// counter  context
 import { CounterContext } from "../../context/CounterContext/CounterContext";
 import { useContext } from "react";
 import { type } from "../../context/CounterContext/CounterContext";
 import Button from "../../components/Button/Button";
 
+// env file api key
+const apiKey=import.meta.env.VITE_API_KEY
+
+
+// Home page
 export default function Home() {
+
+
   const { state, dispatch } = useContext(CounterContext);
 
   return (

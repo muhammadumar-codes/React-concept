@@ -1,0 +1,73 @@
+/* Container */
+.container-counter-redux {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+  background: radial-gradient(circle at top left, #ffb347, #ffcc33, #ff8800);
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+/* Title */
+.title {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Counter number */
+.count-display {
+  font-size: 5rem;
+  font-weight: 700;
+  margin: 20px 0;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+/* Button layout */
+.btn-counter {
+  width: 400px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+}
+
+/* Buttons */
+.btn {
+  background: linear-gradient(135deg, #ff9d00, #ff5e00);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 12px 0;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(255, 87, 34, 0.4);
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #ffb400, #ff3d00);
+  transform: scale(1.07);
+  box-shadow: 0 8px 16px rgba(255, 87, 34, 0.6);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .btn-counter {
+    width: 90%;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .count-display {
+    font-size: 3.5rem;
+  }
+}
