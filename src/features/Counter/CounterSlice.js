@@ -3,27 +3,26 @@ import { createSlice } from '@reduxjs/toolkit'
 const initial = {
   value: 0,
 }
-const counterSlice = createSlice({
+
+const CounterSlice = createSlice({
+  // name of the slice{
   name: 'counter',
-  // use the correct key name expected by createSlice
   initialState: initial,
-  // reducers (plural)
-  reducers: {
+  reducer: {
     increment: (state) => {
-      state.value += 1
+      state.value + 1
     },
 
     decrement: (state) => {
-      console.log(state.value)
+      state.value -= 1
     },
-
     reset: (state) => {
       state.value = 0
     },
     custom: (state, action) => {
-      state.value += action.payload
+      state.value += action.va
     },
   },
 })
-export const { increment, decrement, reset, custom } = counterSlice.actions
-export default counterSlice.reducer
+export const { increment, decrement, reset, custom } = CounterSlice.actions
+export default CounterSlice.reducer

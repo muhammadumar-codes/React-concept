@@ -17,10 +17,10 @@ export default function Redux() {
           <div className="counter-display"> {count}</div>
           <div className="Button-group">
             <Button className="btn" onClick={() => dispatch(increment())}>
-              Increment
+              +
             </Button>
             <Button className="btn" onClick={() => dispatch(decrement())}>
-              Decrement
+              -
             </Button>
             <Button className="btn" onClick={() => dispatch(reset())}>
               Reset
