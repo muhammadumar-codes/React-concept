@@ -12,15 +12,15 @@ function useFetch(url) {
     async function fetchData() {
       if (!url) {
         alert('Please Provide the Api')
+        return
       }
       try {
+        // fetching data
         const response = await axios.get(url)
         setUsers(response.data)
-
         setLoading(false)
         setError(false)
       } catch (error) {
-        console.log(error)
         setError(true)
         setLoading(false)
       }
