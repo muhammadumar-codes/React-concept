@@ -18,7 +18,7 @@ export default function CounterContextProvider({ children }) {
   function reducer(state, action) {
     switch (action.type) {
       case type.increment:
-        console.log(`The  names is ${action.names}`)
+        
         return { ...action.names, count: state.count + 1 }
       case type.decrement:
         console.log(`The  names is ${action.names}`)

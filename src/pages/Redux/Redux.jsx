@@ -5,10 +5,22 @@ import {
   reset,
   custom,
 } from '../../features/Counter/CounterSlice'
+
+
+
 import Button from '../../components/Button/Button'
+
+
+
+
 export default function Redux() {
   const dispatch = useDispatch()
-  const count = useSelector((state) => state.counter.value)
+
+  const count=useSelector((state)=>{
+
+    return state.counter.value
+  })
+
 
   return (
     <>

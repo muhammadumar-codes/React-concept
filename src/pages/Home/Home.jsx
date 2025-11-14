@@ -1,10 +1,16 @@
 // src/pages/Home/Home.jsx
-import "./Home.css";
+import './Home.css'
 // counter  context
-import { CounterContext } from "../../context/CounterContext/CounterContext";
-import { useContext } from "react";
-import { type } from "../../context/CounterContext/CounterContext";
-import Button from "../../components/Button/Button";
+import { CounterContext } from '../../context/CounterContext/CounterContext'
+import { useContext, useMemo } from 'react'
+import { type } from '../../context/CounterContext/CounterContext'
+
+// COMPONENTS
+import Button from '../../components/Button/Button'
+import Child from '../../components/child/Child'
+
+
+
 
 
 
@@ -12,13 +18,19 @@ import Button from "../../components/Button/Button";
 export default function Home() {
 
 
-  const { state, dispatch } = useContext(CounterContext);
+  console.log("The Parent is Rendering")
+
+  
+
+
+  const Memoized=useMemo(() => {
+    <Child user={[3]} />
+  }, [])
+  
+  const { state, dispatch } = useContext(CounterContext)
 
   return (
     <div className="super-container">
-    
-
-
       <div className="counter-container">
         <div className="counter-display">{state.count}</div>
 
@@ -26,7 +38,7 @@ export default function Home() {
           <Button
             className="btn"
             onClick={() =>
-              dispatch({ type: type.increment, payload: "Muhammad Umar" })
+              dispatch({ type: type.increment, payload: 'Muhammad Umar' })
             }
           >
             +
@@ -54,6 +66,15 @@ export default function Home() {
           </Button>
         </div>
       </div>
+
+      <div className="child-container">
+        {Memoized}
+
+    
+      </div>  
     </div>
-  );
+
+
+
+  )
 }
