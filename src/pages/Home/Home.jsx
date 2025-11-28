@@ -1,44 +1,29 @@
 // src/pages/Home/Home.jsx
-import './Home.css'
-// counter  context
-import { CounterContext } from '../../context/CounterContext/CounterContext'
-import { useContext, useMemo } from 'react'
-import { type } from '../../context/CounterContext/CounterContext'
+import { useContext, useMemo } from "react";
+import styles from "./Home.module.css";
 
-// COMPONENTS
-import Button from '../../components/Button/Button'
-import Child from '../../components/child/Child'
+// counter context
+import { CounterContext, type } from "../../context/CounterContext/CounterContext";
 
+// components
+import Button from "../../components/Button/Button";
 
 
-
-
-
-// Home page
 export default function Home() {
+  const { state, dispatch } = useContext(CounterContext);
 
-
-  console.log("The Parent is Rendering")
-
-  
-
-
-  const Memoized=useMemo(() => {
-    <Child user={[3]} />
-  }, [])
-  
-  const { state, dispatch } = useContext(CounterContext)
 
   return (
-    <div className="super-container">
-      <div className="counter-container">
-        <div className="counter-display">{state.count}</div>
+    <div className={styles.superContainer}>
+      {/* Counter Section */}
+      <div className={styles.counterContainer}>
+        <h2 className={styles.countDisplay}>Count: {state.count}</h2>
 
-        <div className="Button-group">
+        <div className={styles.buttonGroup}>
           <Button
-            className="btn"
+           className="btn"                                                
             onClick={() =>
-              dispatch({ type: type.increment, payload: 'Muhammad Umar' })
+              dispatch({ type: type.increment, payload: "Muhammad Umar" })
             }
           >
             +
@@ -62,19 +47,14 @@ export default function Home() {
             className="btn"
             onClick={() => dispatch({ type: type.custom, payload: 15 })}
           >
-            Custom (15)
+            Custom +15
           </Button>
         </div>
+
+      
       </div>
 
-      <div className="child-container">
-        {Memoized}
-
-    
-      </div>  
+     
     </div>
-
-
-
-  )
+  );
 }

@@ -5,10 +5,14 @@ import ApiError from '../../components/Error/Error'
 import Button from '../../components/Button/Button'
 
 export default function Contact() {
+
+  // reload Button
   const reload = () => {
     window.location.reload()
   }
 
+
+  // Data from Custom hook useFetch
   const { users, loading, error, refetch } = useFetch(
     'https://jsonplaceholder.typicode.com/users'
   )
