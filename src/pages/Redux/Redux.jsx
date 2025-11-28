@@ -6,7 +6,7 @@ import {
   custom,
 } from '../../features/Counter/CounterSlice'
 
-
+import styles from "./Redux.module.css"
 
 import Button from '../../components/Button/Button'
 
@@ -24,10 +24,10 @@ export default function Redux() {
 
   return (
     <>
-      <div className="super-container">
-        <div className="counter-container">
-          <div className="counter-display"> {count}</div>
-          <div className="Button-group">
+      <div className={styles.superContainer}>
+        <div className={styles.counterContainer}>
+          <div className={styles.countDisplay}> {count}</div>
+          <div className={styles.buttonGroup}>
             <Button className="btn" onClick={() => dispatch(increment())}>
               +
             </Button>
