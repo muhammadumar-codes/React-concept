@@ -6,6 +6,7 @@ export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
   return response.data
 })
 
+// Todos slice.
 const todosSlice = createSlice({
   name: 'todos',
   initialState: {
