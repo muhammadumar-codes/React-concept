@@ -1,38 +1,39 @@
+// froim react redux
 
-import {useSelector,useDispatch} from "react-redux";
-import {increment,decrement,reset , custom} from "../../features/Counter/CounterSlice"; 
+import { useSelector, useDispatch } from 'react-redux'
 
+// css 
+import './Services.css'
+// butttn
 
+import Button from '../../components/Button/Button'
 
-
-import "./Services.css";
-import Button from "../../components/Button/Button";
+// fetch todos
+import { fetchTodos } from '../../features/Todos/TodosSlice'
 
 // Services page
-export default function Services() {  
-const dispatch = useDispatch();
-const count = useSelector((state) => state.counter.value);
+export default function Services() {
+const {loading ,error,data}=useSelector(state=>state.fetchData)
+
+console.log(data);
+
+const dispatch = useDispatch()
+  
+
+
+// loaading and error showing cart
+if (error) return <h1 className='text-center '>Something Went Wrong Check Your Internet Connection Please</h1>
+if (loading) return <h1>Loading ....</h1>
 
   return (
-    <div className="super-container">
-      <div className="counter-container">
-        <div className="counter-display">{count}</div>    
-        <div className="Button-group">  
-          <Button className="btn" onClick={() => dispatch(increment())}>  
-            +     
-          </Button> 
-          <Button className="btn" onClick={() => dispatch(decrement())}>
-            −
-          </Button>
-          <Button className="btn" onClick={() => dispatch(reset())}>    
-            Reset
-          </Button>
+    <>
+      <div className="container">
 
-            <Button className="btn" onClick={() => dispatch(custom(10))}>    
-            custom
-          </Button>
-        </div>  
-      </div>  
-    </div>    
-  );  
-} 
+
+  
+
+        <Button onClick={()=>dispatch(fetchTodos())} className="bg-blue-700 text-white  p-5 rounded cursor-pointer" >Fetch Todos</Button>
+      </div>
+    </>
+  )
+}
