@@ -1,8 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
 
-export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
-  const response = await axios.get('https://jsonplaceholder.typicode.com/todos')
+export const fetchTodos = createAsyncThunk('todos/fetchTodos', async (url) => {
+  const response = await axios.get(url)
   return response.data
 })
 
@@ -24,7 +23,7 @@ const todosSlice = createSlice({
       })
       .addCase(fetchTodos.fulfilled, (state, action) => {
         state.loading = false
-        state.data = action.payload
+        state.data.push(action.payload)
       })
       .addCase(fetchTodos.rejected, (state) => {
         state.loading = false

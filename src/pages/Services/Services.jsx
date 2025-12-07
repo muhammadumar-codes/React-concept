@@ -13,6 +13,7 @@ import { fetchTodos } from '../../features/Todos/TodosSlice'
 
 // Services page
 export default function Services() {
+const url="https://jsonplaceholder.typicode.com/todos"
 const {loading ,error,data}=useSelector(state=>state.fetchData)
 
 console.log(data);
@@ -32,7 +33,7 @@ if (loading) return <h1>Loading ....</h1>
 
   
 
-        <Button onClick={()=>dispatch(fetchTodos())} className="bg-blue-700 text-white  p-5 rounded cursor-pointer" >Fetch Todos</Button>
+        <Button onClick={()=>dispatch(fetchTodos(url))} className="bg-blue-700 text-white  p-5 rounded cursor-pointer" >Fetch Todos</Button>
       </div>
     </>
   )
