@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
+//api async
+
 export const fetchTodos = createAsyncThunk('todos/fetchTodos', async (url) => {
   const response = await axios.get(url)
   return response.data
@@ -13,6 +15,8 @@ const todosSlice = createSlice({
     data: [],
     error: null,
   },
+
+  // reducer
 
   reducers: {},
 
