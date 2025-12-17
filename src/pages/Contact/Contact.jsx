@@ -4,6 +4,12 @@ import ProfessionalLoader from '../../components/Loader/Loader'
 import ApiError from '../../components/Error/Error'
 import Button from '../../components/Button/Button'
 
+
+// .env file to import api url
+const apiUrl=import.meta.env.VITE_API_URL
+  
+
+
 export default function Contact() {
 
   // reload Button
@@ -13,9 +19,7 @@ export default function Contact() {
 
 
   // Data from Custom hook useFetch
-  const { users, loading, error, refetch } = useFetch(
-    'https://jsonplaceholder.typicode.com/users'
-  )
+  const { users, loading, error, refetch } = useFetch(apiUrl)
 
   // Show loader while loading
   if (loading) {
