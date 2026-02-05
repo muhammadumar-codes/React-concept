@@ -1,36 +1,57 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-function useFetch(url) {
-  // states
-  const [users, setUsers] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
+// ===* useFetch component *===
+export function useFetch({ url }) {
+  const [data, setData] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(null)
 
-  //Fetch on on Mount update
   useEffect(() => {
-    async function fetchData() {
-      if (!url) {
-        alert('Please Provide the Api')
-        return
-      }
+    if (!url) {
+      console.warn(' Please provide a valid API URL!')
+      setIsLoading(false)
+      return
+    }
+
+    // ===*Create a controller to cancel the request if needed*===
+
+    const controller = new AbortController()
+
+    const fetchData = async () => {
       try {
-        // fetching data
-        const response = await axios.get(url)
-        setUsers(response.data)
-        setLoading(false)
-        setError(false)
-      } catch (error) {
-        setError(true)
-        setLoading(false)
+        setIsLoading(true)
+
+        // ===* Pass controller.signal to axios to handle cancellation*===
+
+        const response = await axios.get(url, { signal: controller.signal })
+
+        setData(response.data)
+        setError(null)
+      } catch (err) {
+        //
+        // ===*Check if the request was cancelled*===
+
+        if (axios.isCancel(err)) {
+          console.log(' Request cancelled by the user or unmount.')
+        } else {
+          console.error(' Fetch error:', err)
+          setError('Something went wrong while fetching data.')
+        }
+      } finally {
+        setIsLoading(false)
       }
     }
-    // calling fetching Data fun
+
     fetchData()
+
+    // ===*  Cleanup: runs when component unmounts*===
+
+    return () => {
+      controller.abort() //
+    }
   }, [url])
 
-  //  getting the states in compoenents
-  return { users, loading, error }
+  // ===* Reusable in  any components  *===
+  return { data, isLoading, error }
 }
-
-export default useFetch
